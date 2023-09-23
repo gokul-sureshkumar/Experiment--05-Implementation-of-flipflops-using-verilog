@@ -1,8 +1,18 @@
 # Experiment--05-Implementation-of-flipflops-using-verilog
-### AIM: To implement all the flipflops using verilog and validating their functionality using their functional tables
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
+### AIM: 
+
+To implement all the flipflops using verilog and validating their functionality using their functional tables.
+
+### HARDWARE REQUIRED:  
+
+– PC, Cyclone II , USB flasher
+
+### SOFTWARE REQUIRED:   
+
+Quartus prime
+
 ### THEORY 
+
 SR Flip-Flop
 SR flip-flop operates with only positive clock transitions or negative clock transitions. Whereas, SR latch operates with enable signal. The circuit diagram of SR flip-flop is shown in the following figure.
 
@@ -107,19 +117,34 @@ Q(t+1)=T′Q(t)+TQ(t)′
 
 
 ### PROGRAM 
-/*
+
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: GOKUL S
+RegisterNumber: 212222110011
+
+module ex5(S,R,Q,Qbar,CLK);
+input S,R,CLK;
+output reg Q,Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge CLK)
+begin 
+Q = S|(Q&(~R));
+Qbar=R|(Qbar&(~S));
+end 
+endmodule 
 
 
+
+
+## Truth Table:
 
 
 
 
 ### RTL LOGIC FOR FLIPFLOPS 
 
+![image](https://github.com/gokul-sureshkumar/Experiment--05-Implementation-of-flipflops-using-verilog/assets/121148715/d708c915-c09e-4ff1-9869-670f402fb9a5)
 
 
 
@@ -128,7 +153,10 @@ RegisterNumber:
 
 
 
-### TIMING DIGRAMS FOR FLIP FLOPS 
+### OUTPUT WAVEFORM:
+
+![image](https://github.com/gokul-sureshkumar/Experiment--05-Implementation-of-flipflops-using-verilog/assets/121148715/547477d4-f6c8-4f33-aaaa-f0eed5a98d37)
+
 
 
 
@@ -138,3 +166,5 @@ RegisterNumber:
 
 
 ### RESULTS 
+
+Thus the implementation of flipflops using verilog was sucessfully created.
